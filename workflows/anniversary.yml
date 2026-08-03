@@ -1,1 +1,24 @@
+name: Anniversary
 
+on:
+  schedule:
+    - cron: "0 14 * * *"   # todos los días, 10:00 AM hora Miami (UTC-4)
+  workflow_dispatch:
+
+jobs:
+  revisar-aniversario:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repo
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ejecutar script
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python aniversario2.py

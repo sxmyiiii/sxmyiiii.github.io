@@ -1298,10 +1298,28 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
 })();
 </script>
    <script data-goatcounter="https://sxmyiiii.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+        async src="//gc.zgo.at/count.js">
+      
+        </script>
    <script>
-  const mensaje = encodeURIComponent("¡Sade visitó: sxmyiiii.github.io! 🪐🩷");
-  fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(datos => {
+      const ciudad = datos.city || "ciudad desconocida";
+      const pais = datos.country_name || "país desconocido";
+      const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
+
+      const texto = `Nueva visita a sxmyiiii.github.io\n📍 ${ciudad}, ${pais}\n🕒 ${hora}`;
+      const mensaje = encodeURIComponent(texto);
+
+
+      fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
+    })
+    .catch(() => {
+    
+      const mensaje = encodeURIComponent("👀 Nueva visita a sxmyiiii.github.io\n\n (sin datos de ubicación)");
+      fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
+    });
 </script>
 </body>
 </html>

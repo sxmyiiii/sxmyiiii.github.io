@@ -1332,10 +1332,10 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
       }
 
       let navegador = "Navegador desconocido";
-      if (/Edg/i.test(ua)) navegador = "Edge";
-      else if (/OPR|Opera/i.test(ua)) navegador = "Opera";
-      else if (/Chrome/i.test(ua)) navegador = "Chrome";
-      else if (/Firefox/i.test(ua)) navegador = "Firefox";
+      if (/EdgiOS|Edg/i.test(ua)) navegador = "Edge";
+      else if (/OPiOS|OPR|Opera/i.test(ua)) navegador = "Opera";
+      else if (/CriOS|Chrome/i.test(ua)) navegador = "Chrome";
+      else if (/FxiOS|Firefox/i.test(ua)) navegador = "Firefox";
       else if (/Safari/i.test(ua)) navegador = "Safari";
 
       const texto = `👀 Nueva visita a sxmyiiii.github.io\n📍 ${ciudad}, ${pais}\n🕒 ${hora}\n📱 ${dispositivo} · ${navegador}`;
@@ -1348,6 +1348,7 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
       fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
     });
 </script>
+
 
    
 </body>

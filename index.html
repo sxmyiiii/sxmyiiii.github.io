@@ -1301,7 +1301,7 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
         async src="//gc.zgo.at/count.js">
       
         </script>
-   <script>
+<script>
   fetch("https://ipapi.co/json/")
     .then(res => res.json())
     .then(datos => {
@@ -1309,18 +1309,46 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
       const pais = datos.country_name || "país desconocido";
       const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
 
-      const texto = `Nueva visita a sxmyiiii.github.io\n📍 ${ciudad}, ${pais}\n🕒 ${hora}`;
-      const mensaje = encodeURIComponent(texto);
+      const ua = navigator.userAgent;
+      const pantalla = `${screen.width}x${screen.height}`;
 
+      let dispositivo = "Dispositivo desconocido";
+
+      if (/iPhone/i.test(ua)) {
+        dispositivo = `iPhone (pantalla ${pantalla})`;
+      } else if (/iPad/i.test(ua)) {
+        dispositivo = `iPad (pantalla ${pantalla})`;
+      } else if (/Android/i.test(ua)) {
+        const match = ua.match(/Android[^;]*;\s([^;)]+)/i);
+        dispositivo = match ? `Android - ${match[1].trim()}` : "Android (modelo no detectado)";
+      } else if (/Windows/i.test(ua)) {
+        dispositivo = "Windows";
+      } else if (/Macintosh|Mac OS X/i.test(ua)) {
+        dispositivo = "Mac";
+      } else if (/Linux/i.test(ua)) {
+        dispositivo = "Linux";
+      } else if (/CrOS/i.test(ua)) {
+        dispositivo = "Chromebook";
+      }
+
+      let navegador = "Navegador desconocido";
+      if (/Edg/i.test(ua)) navegador = "Edge";
+      else if (/OPR|Opera/i.test(ua)) navegador = "Opera";
+      else if (/Chrome/i.test(ua)) navegador = "Chrome";
+      else if (/Firefox/i.test(ua)) navegador = "Firefox";
+      else if (/Safari/i.test(ua)) navegador = "Safari";
+
+      const texto = `👀 Nueva visita a sxmyiiii.github.io\n📍 ${ciudad}, ${pais}\n🕒 ${hora}\n📱 ${dispositivo} · ${navegador}`;
+      const mensaje = encodeURIComponent(texto);
 
       fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
     })
     .catch(() => {
-    
-      const mensaje = encodeURIComponent("👀 Nueva visita a sxmyiiii.github.io\n\n (sin datos de ubicación)");
+      const mensaje = encodeURIComponent("👀 Nueva visita a sxmyiiii.github.io\n(sin datos de ubicación)");
       fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
     });
 </script>
+
    
 </body>
 </html>

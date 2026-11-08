@@ -7,7 +7,7 @@
 <title>Te amo con la vida 🩷</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&family=Parisienne&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
    BASE
@@ -622,8 +622,98 @@ html.oculta .mancha,html.oculta .estrella{animation-play-state:paused}
 #btnContinuar:not(.ver){pointer-events:none}
 @keyframes brilla{from{opacity:.15}to{opacity:1}}
 </style>
+<style>
+:root{--rosa-fuerte:#a3212e;--rosa-hondo:#3f2008;--vidrio:linear-gradient(160deg,rgba(255,238,175,.6),rgba(214,150,40,.32));--vidrio-borde:1px solid rgba(255,230,150,.8);--vidrio-luz:inset 0 1.4px 1px rgba(255,248,210,.95),inset 0 -8px 14px -10px rgba(120,60,0,.45);--vidrio-sombra:0 10px 26px rgba(60,30,0,.38)}
+body{background:radial-gradient(ellipse at 50% 38%,#f7d66f 0%,#d9a21f 38%,#a6690f 72%,#5b3306 100%)}
+.m1{background:radial-gradient(circle,rgba(255,244,190,.6),transparent 62%)}.m2{background:radial-gradient(circle,rgba(255,190,60,.4),transparent 62%)}.m3{background:radial-gradient(circle,rgba(190,110,20,.5),transparent 62%)}.m4{background:radial-gradient(circle,rgba(255,215,110,.35),transparent 62%)}
+.estrella{background:#fff4c2;box-shadow:0 0 8px 2px rgba(255,220,120,.9)}
+.pregunta,.pin-titulo{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;text-shadow:0 1px 0 rgba(255,240,190,.8)}
+.pregunta{font-size:2rem}
+.frase-gracias,.pin-titulo{background:linear-gradient(180deg,rgba(255,240,190,.65),rgba(220,160,50,.38));border-color:rgba(255,230,150,.8)}
+#tarjeta{background:linear-gradient(160deg,rgba(255,238,175,.5),rgba(214,150,40,.3) 55%,rgba(150,90,15,.28));border:1px solid rgba(255,225,140,.75);box-shadow:0 26px 48px rgba(50,25,0,.45),var(--vidrio-luz)}
+#tarjeta::before,#tarjeta::after,.lamina-frase::before{content:"❀";color:#3f2008;font-size:1.7rem}
+.aviso{background:linear-gradient(180deg,rgba(255,238,175,.92),rgba(230,170,60,.75))}
+.btn-si{background:linear-gradient(160deg,rgba(255,240,190,.9),rgba(230,170,60,.6))}
+.lamina-frase,.lamina-hueco{background:linear-gradient(160deg,rgba(255,240,190,.78),rgba(225,165,55,.58))}
+.lamina-frase p{text-shadow:0 1px 3px rgba(255,240,190,.9),0 0 18px rgba(255,200,80,.6)}
+#zonaCarrusel{box-shadow:inset 0 0 0 3px rgba(30,16,4,.9),inset 0 0 0 5px rgba(243,210,122,.95),inset 0 -10px 20px -14px rgba(90,50,0,.5)}
+#zonaCarrusel::after{background:linear-gradient(transparent,rgba(90,50,0,.35))}
+#progreso i{background:linear-gradient(90deg,#f3d27a,#a3212e)}
+#reflejo::after{background:conic-gradient(from var(--ang),transparent 0 20%,rgba(255,250,210,.95) 30%,transparent 40% 70%,rgba(255,190,60,.95) 80%,transparent 90%)}
+.punto.lleno{background:#a3212e;box-shadow:0 0 15px rgba(255,190,60,.9)}
+.sube-palabra{color:#fff3c4;text-shadow:0 0 12px rgba(255,200,80,.95),0 1px 3px rgba(60,30,0,.85)}
+.sube-corazon svg,.gota svg,.golpe svg{filter:drop-shadow(0 3px 6px rgba(60,30,0,.4))}
+.sube-corazon svg{animation:giraF 6s ease-in-out infinite alternate}
+@keyframes giraF{from{transform:rotate(-16deg)}to{transform:rotate(16deg)}}
+.corazon-portal{filter:drop-shadow(0 0 60px rgba(255,200,70,.65))}
+.flash{background:radial-gradient(circle,rgba(255,250,215,.95),rgba(255,190,60,.55) 50%,transparent 75%)}
+#corazonCentral svg{width:3.4rem;height:3.4rem;display:block;margin:0 auto}
+.letra-caja .emo svg{width:1.9rem;height:1.9rem;display:block}
+.petalo-brillo{filter:drop-shadow(0 0 4px rgba(255,230,150,.9))}
+@keyframes lev{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -5px;rotate:1.2deg}}
+.contador-flota,.frase-gracias,.tecla,#btnBorrar,#btnContinuar,.btn-si,.flecha{animation:lev 5.5s ease-in-out infinite}
+.contador-flota{animation-duration:6.5s}
+.tecla:nth-child(2n){animation-delay:-1.4s}.tecla:nth-child(3n){animation-delay:-2.8s}.tecla:nth-child(5n){animation-delay:-4s}
+#flechaAdelante{animation-delay:-2.5s}
+#oro,#prado{position:fixed;pointer-events:none}
+</style>
+<style>
+body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transparent 62%),linear-gradient(180deg,#80540c 0%,#a97618 42%,#9a5a14 78%,#7a3d0e 100%)}
+.m1{background:radial-gradient(circle,rgba(255,226,140,.45),transparent 62%)}.m2{background:radial-gradient(circle,rgba(215,120,35,.4),transparent 62%)}.m3{background:radial-gradient(circle,rgba(120,60,12,.55),transparent 62%)}.m4{background:radial-gradient(circle,rgba(240,190,80,.3),transparent 62%)}
+</style>
+<style>
+/* cristal amarillo: solo contador, frases, tarjeta, botones y marco */
+:root{--vidrio:linear-gradient(115deg,transparent 28%,rgba(255,255,255,.36) 44%,transparent 58%),linear-gradient(155deg,rgba(255,250,200,.64) 0%,rgba(255,226,110,.26) 48%,rgba(255,240,160,.44) 100%);--vidrio-borde:1px solid rgba(255,252,215,.92);--vidrio-luz:inset 0 2px 1.5px rgba(255,255,236,.96),inset 0 -10px 16px -10px rgba(214,150,20,.45),inset 0 0 0 1px rgba(255,236,150,.25);--vidrio-sombra:0 12px 30px rgba(70,40,0,.3);--blur:blur(20px) saturate(185%) brightness(1.1)}
+.frase-gracias,.pin-titulo,.btn-si{background:var(--vidrio);border:var(--vidrio-borde);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur)}
+#tarjeta{background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 46%,transparent 60%),linear-gradient(160deg,rgba(255,250,205,.5),rgba(255,224,100,.18) 50%,rgba(255,236,150,.34));border:1px solid rgba(255,252,215,.88);box-shadow:0 26px 48px rgba(60,35,0,.35),inset 0 2px 2px rgba(255,255,240,.95),inset 0 -14px 24px -14px rgba(230,170,30,.5);-webkit-backdrop-filter:blur(26px) saturate(190%) brightness(1.08);backdrop-filter:blur(26px) saturate(190%) brightness(1.08)}
+.aviso{background:linear-gradient(180deg,rgba(255,250,205,.9),rgba(255,226,110,.62))}
+.lamina-frase,.lamina-hueco{background:linear-gradient(160deg,rgba(255,249,205,.68),rgba(255,226,115,.4))}
+.burbuja::after{background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0))}
+/* quietos: sin resplandor que cambia ni inclinación; aparecen en su lugar */
+#contador.centro .contador-vidrio{animation:none}
+.frase-gracias.ver{animation:lev 5.5s ease-in-out infinite}
+@keyframes lev{0%,100%{translate:0 0}50%{translate:0 -5px}}
+.emerge,.emerge.ver{transform:none;transition:opacity .9s ease}
+.emerge.ver:active{transform:scale(.92)}
+#lianas{position:fixed}
+</style>
+<style>
+/* misma tipografía que "Simplemente gracias por existir" (Parisienne). Solo existe en peso normal:
+   se fuerza normal/normal para que el navegador no invente una negrita o cursiva falsa */
+.pregunta,.pin-titulo{font-family:'Parisienne',cursive;font-style:normal;font-weight:400;letter-spacing:0}
+.pregunta{font-size:clamp(1.8rem,8.4vw,2.2rem);line-height:1.3;text-wrap:balance}
+.pin-titulo{font-size:1.8rem}
+.burbuja{transition:transform .5s var(--suave),box-shadow .7s ease,background .7s ease}
+.flecha{transition:transform .8s var(--suave),opacity .6s ease,box-shadow .7s ease,background .7s ease}
+@media(hover:hover){.burbuja:hover{background:var(--vidrio);box-shadow:var(--vidrio-sombra),var(--vidrio-luz),0 0 20px rgba(255,238,160,.38),inset 0 0 24px rgba(255,250,210,.4)}}
+.frase-gracias.ver{pointer-events:auto;cursor:pointer}
+.frase-gracias.bloq{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.frase-gracias .gl{display:block;max-width:100%;text-align:center}
+.frase-gracias.codigo .gl{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-style:normal;font-weight:700;letter-spacing:.02em;line-height:1.45;color:var(--rosa-fuerte);white-space:nowrap}
+.gl.fallo{animation:fallo .12s steps(2,end) infinite;text-shadow:-2px 0 rgba(255,50,90,.75),2px 0 rgba(40,110,255,.65)}
+@keyframes fallo{0%{transform:translate(0,0) skewX(0)}25%{transform:translate(-2px,1px) skewX(-6deg)}50%{transform:translate(2px,-1px) skewX(5deg)}75%{transform:translate(-1px,-1px) skewX(-3deg)}100%{transform:translate(1px,1px) skewX(0)}}
+</style>
+<style>
+/* ═══ CRISTAL DEL CONTADOR ═══
+   El contador se ve como cristal crema porque su material es solo: degradado translúcido + brillo
+   diagonal + borde claro + luz interior, SIN backdrop-filter (el blur con saturación es lo que volvía
+   naranja el fondo dorado detrás de lo demás). Aquí ese mismo material se declara de forma explícita
+   y se copia a "Simplemente gracias por existir" y a la tarjeta (la pregunta y el carrusel).
+   Los botones (Sí, No, flechas, teclas, Continuar) NO se tocan. */
+.contador-vidrio,.frase-gracias,#tarjeta{
+  background:var(--vidrio);
+  border:var(--vidrio-borde);
+  box-shadow:var(--vidrio-sombra),var(--vidrio-luz);
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+}
+/* la tarjeta es mucho más grande: conserva una sombra de suelo proporcional */
+#tarjeta{box-shadow:0 22px 44px rgba(70,40,0,.3),var(--vidrio-luz)}
+/* las láminas de frase del carrusel, con el mismo cristal */
+.lamina-frase,.lamina-hueco{background:var(--vidrio)}
+</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="fl0"><circle cx="12.00" cy="5.50" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f8e3a0" stroke="#6e1026" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#6e1026"/></g><g id="fl1"><circle cx="12.00" cy="5.50" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#fbe6a8" stroke="#9a2750" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#9a2750"/></g><g id="fl2"><circle cx="12.00" cy="5.50" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f2cf5a" stroke="#b9788f" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#b9788f"/></g><g id="fl3"><circle cx="12.00" cy="5.50" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f6e7a6" stroke="#262a78" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#262a78"/></g><g id="fl4"><circle cx="12.00" cy="5.50" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#fbe9a8" stroke="#8c3a12" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#8c3a12"/></g><g id="rg0"><circle cx="12" cy="12" r="11" fill="#a51c2e" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#f2e1bd" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#d9363f" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f7ead0" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#2c0d12"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="rg1"><circle cx="12" cy="12" r="11" fill="#1b4a98" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#e8ecd8" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#3f86d1" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f3f0dc" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#0d1f45"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="rg2"><circle cx="12" cy="12" r="11" fill="#6b2f93" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#f0e0ef" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#b04aa8" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f6ecd8" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#25102f"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="mo0"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="6.5" y="4.5" width="11" height="15" fill="#f4e6b8" stroke="#15100a" stroke-width="2.2"/></g><g id="mo1"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="7.5" y="3" width="9" height="18" fill="#15100a"/><rect x="9.5" y="5" width="5" height="7" fill="#f2ead4"/><circle cx="12" cy="15" r="1.3" fill="#f2ead4"/><circle cx="12" cy="18.4" r="1.3" fill="#f2ead4"/></g><g id="mo2"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="4.5" y="7" width="15" height="10" fill="#c4c0b2" stroke="#15100a" stroke-width="1.2"/><rect x="7" y="9.2" width="10" height="5.6" fill="#ece8dc"/></g><g id="mo3"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><circle cx="12" cy="12" r="8.6" fill="#f0c650" stroke="#a16e12" stroke-width="1"/><path d="M12 12a1.5 1.5 0 1 1 2 1.3 3.3 3.3 0 1 1-4.5-3 5.2 5.2 0 1 1 7.4 4.8" fill="none" stroke="#7a4a0c" stroke-width="1" stroke-linecap="round"/></g><g id="mo4"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="7.5" y="3" width="9" height="18" fill="#15100a"/><rect x="9.6" y="5" width="1.6" height="14" fill="#f2ead4"/><rect x="12.8" y="5" width="1.6" height="14" fill="#cfcabb"/></g></defs></svg>
 <div id="aurora"><i class="mancha m1"></i><i class="mancha m2"></i><i class="mancha m3"></i><i class="mancha m4"></i></div>
 <div id="petalos"></div><div id="chispas"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="g0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8fb3"/><stop offset="1" stop-color="#d81b60"/></linearGradient><g id="hc0"><path fill="url(#g0)" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.7 4.5 6.4 4.5c2.2 0 4 1.2 5.6 3.3 1.6-2.1 3.4-3.3 5.6-3.3 3.7 0 5.5 3.9 4 7.3C19.5 16.4 12 21 12 21z"/><ellipse cx="8" cy="8" rx="3" ry="1.7" fill="#fff" opacity=".55" transform="rotate(-35 8 8)"/></g><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc2d4"/><stop offset="1" stop-color="#f06292"/></linearGradient><g id="hc1"><path fill="url(#g1)" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.7 4.5 6.4 4.5c2.2 0 4 1.2 5.6 3.3 1.6-2.1 3.4-3.3 5.6-3.3 3.7 0 5.5 3.9 4 7.3C19.5 16.4 12 21 12 21z"/><ellipse cx="8" cy="8" rx="3" ry="1.7" fill="#fff" opacity=".55" transform="rotate(-35 8 8)"/></g><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6f9f"/><stop offset="1" stop-color="#ad1457"/></linearGradient><g id="hc2"><path fill="url(#g2)" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.7 4.5 6.4 4.5c2.2 0 4 1.2 5.6 3.3 1.6-2.1 3.4-3.3 5.6-3.3 3.7 0 5.5 3.9 4 7.3C19.5 16.4 12 21 12 21z"/><ellipse cx="8" cy="8" rx="3" ry="1.7" fill="#fff" opacity=".55" transform="rotate(-35 8 8)"/></g><linearGradient id="pg0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#ffd0df"/><stop offset="1" stop-color="#ff8fb3"/></linearGradient>
@@ -656,7 +746,7 @@ html.oculta .mancha,html.oculta .estrella{animation-play-state:paused}
 
 <!-- ── PIN ── -->
 <div id="panelPin">
-  <div class="pin-titulo">Adivina mami🫦</div>
+  <div class="pin-titulo">Adivina mami</div>
   <div class="puntos" id="puntos">
     <span class="punto"></span><span class="punto"></span><span class="punto"></span><span class="punto"></span>
   </div>
@@ -681,18 +771,18 @@ html.oculta .mancha,html.oculta .estrella{animation-play-state:paused}
 
   <div id="tarjeta">
     <div id="zonaPregunta">
-      <span class="tocable" id="corazonCentral">🩷</span>
+      <span class="tocable" id="corazonCentral"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span>
       <div class="pregunta">¿Te caigo mal bobita?</div>
       <div class="botones" id="botones">
         <button class="burbuja tocable btn-si" id="btnSi" type="button">Sí 🖕</button>
         <button class="burbuja tocable btn-no" id="btnNo" type="button">No 🙊</button>
       </div>
       <div class="fila-teamo" id="filaTeAmo">
-        <span class="letra-caja"><span class="emo">🩷</span><span class="ltr">T</span></span>
-        <span class="letra-caja"><span class="emo">🌸</span><span class="ltr">E</span></span>
-        <span class="letra-caja"><span class="emo">🩷</span><span class="ltr">A</span></span>
-        <span class="letra-caja"><span class="emo">🎀</span><span class="ltr">M</span></span>
-        <span class="letra-caja"><span class="emo">🩷</span><span class="ltr">O</span></span>
+        <span class="letra-caja"><span class="emo"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span><span class="ltr">T</span></span>
+        <span class="letra-caja"><span class="emo"><svg viewBox="0 0 24 24"><use href="#fl2"/></svg></span><span class="ltr">E</span></span>
+        <span class="letra-caja"><span class="emo"><svg viewBox="0 0 24 24"><use href="#fl1"/></svg></span><span class="ltr">A</span></span>
+        <span class="letra-caja"><span class="emo"><svg viewBox="0 0 24 24"><use href="#fl3"/></svg></span><span class="ltr">M</span></span>
+        <span class="letra-caja"><span class="emo"><svg viewBox="0 0 24 24"><use href="#fl4"/></svg></span><span class="ltr">O</span></span>
       </div>
     </div>
 
@@ -922,7 +1012,7 @@ function textoContador(){
   if(t.años  > 0) partes.push(t.años + (t.años === 1 ? " año" : " años"));
   if(t.meses > 0) partes.push(t.meses + (t.meses === 1 ? " mes" : " meses"));
   partes.push(t.dias + (t.dias === 1 ? " día" : " días"));
-  return "🩷 " + partes.join(", ") + " · " + dosDig(t.h) + ":" + dosDig(t.m) + ":" + dosDig(t.s);
+  return "✿ " + partes.join(", ") + " · " + dosDig(t.h) + ":" + dosDig(t.m) + ":" + dosDig(t.s);
 }
 
 let enFallo = false;
@@ -938,7 +1028,7 @@ function programarFallo(espera){
   relojFallo = setTimeout(() => {
     enFallo = true;
     contadorValor.classList.add("fallo");
-    contadorValor.textContent = "🩷 " + FALLOS_CONTADOR[(Math.random()*FALLOS_CONTADOR.length)|0];
+    contadorValor.textContent = "✿ " + FALLOS_CONTADOR[(Math.random()*FALLOS_CONTADOR.length)|0];
 
     setTimeout(() => {                       // el fallo dura 1 segundo
       enFallo = false;
@@ -969,9 +1059,9 @@ function lluviaBrillante(){
   const box = $("chispas");
   const SPARK = '<svg viewBox="0 0 24 24"><path fill="#fff" d="M12 1c1 6 5 10 11 11-6 1-10 5-11 11-1-6-5-10-11-11 6-1 10-5 11-11z"/></svg>';
   for(let i=0;i<46;i++){
-    const p = document.createElement("i"), w = 9 + Math.random()*7;
+    const p = document.createElement("i"), w = 13 + Math.random()*12;
     p.className = "petalo-brillo";
-    p.innerHTML = '<svg viewBox="0 0 24 24"><use href="#pt' + (i % 3) + '"/></svg>';
+    p.innerHTML = '<svg viewBox="0 0 24 24"><use href="#' + ['mo0','mo1','mo3','fl0','fl3','mo2'][i % 6] + '"/></svg>';
     p.style.cssText = "left:" + (Math.random()*100) + "vw;width:" + w + "px;height:" + (w*1.15) + "px";
     box.appendChild(p);
     const dx = Math.random()*140 - 70, r = Math.random()*600 - 300, f = Math.random()*700 + 300, a = 14 + Math.random()*26;
@@ -1482,12 +1572,12 @@ function reiniciarTodo(){
    ═══════════════════════════════════════════════════════════ */
 
 /* ═══ MEJORAS ✨ ═══ */
-const corazonSVG = () => '<svg viewBox="0 0 24 24"><use href="#hc' + ((Math.random()*3)|0) + '"/></svg>';
+const corazonSVG = () => '<svg viewBox="0 0 24 24"><use href="#' + ["fl0","fl0","fl1","fl1","fl2","fl3","fl4","rg0","rg1","rg2"][(Math.random()*10)|0] + '"/></svg>';
 
 const FIG = [
   () => corazonSVG(),
-  () => '<svg viewBox="0 0 24 24"><path fill="#fff" stroke="#ff8fb3" stroke-width="1" d="M12 1c1 6 5 10 11 11-6 1-10 5-11 11-1-6-5-10-11-11 6-1 10-5 11-11z"/></svg>',
-  () => '<svg viewBox="0 0 24 24"><path fill="#ffb3c7" d="M12 2c7 5 8 13 0 20C4 15 5 7 12 2z"/></svg>'
+  () => '<svg viewBox="0 0 24 24"><use href="#mo' + ((Math.random()*5)|0) + '"/></svg>',
+  () => '<svg viewBox="0 0 24 24"><path fill="#ffe39a" d="M12 1c1 6 5 10 11 11-6 1-10 5-11 11-1-6-5-10-11-11 6-1 10-5 11-11z"/></svg>'
 ];
 function chispas(x, y, n, _f, alc){
   const box = $("chispas"); alc = alc || 1;
@@ -1535,24 +1625,24 @@ function destello(){
 }
 
 function confeti(){
-  const box = $("chispas"), cols = ["#ff8fb3","#ffc2d4","#f06292","#fff","#ffb3c7","#ec407a"];
-  for(let i=0;i<70;i++){
-    const p = document.createElement("i"), t = 7 + Math.random()*7;
-    p.className = "confeti"; p.style.left = Math.random()*100 + "vw"; p.style.background = cols[i%6];
-    p.style.width = p.style.height = t + "px"; p.style.borderRadius = i%3 ? "150% 0 150% 0" : "50%";
-    p.style.setProperty("--dx", (Math.random()*160 - 80) + "px"); p.style.setProperty("--r", (Math.random()*900 - 450) + "deg");
-    p.style.animationDuration = (3 + Math.random()*2.5) + "s"; p.style.animationDelay = Math.random()*1.2 + "s";
-    box.appendChild(p); setTimeout(() => p.remove(), 7500);
+  const box = $("chispas");
+  for(let i=0;i<64;i++){
+    const p = document.createElement("i"), w = 14 + Math.random()*20;
+    p.style.cssText = "position:absolute;top:-30px;left:" + Math.random()*100 + "vw;width:" + w + "px;height:" + w + "px";
+    p.innerHTML = i%2 ? '<svg viewBox="0 0 24 24"><use href="#fl' + (i%5) + '"/></svg>' : '<svg viewBox="0 0 24 24"><use href="#mo' + (i%5) + '"/></svg>';
+    box.appendChild(p);
+    const dx = Math.random()*160 - 80, r = Math.random()*700 - 350, f = Math.random()*600;
+    p.animate([{transform:"translate(0,0)",opacity:0},{opacity:1,offset:.08},{transform:"translate("+dx+"px,112vh) perspective(300px) rotate("+r+"deg) rotateY("+f+"deg)",opacity:.9}],{duration:3500 + Math.random()*3000,delay:Math.random()*1200,easing:"ease-in",fill:"both"}).onfinish = () => p.remove();
   }
 }
-
 function soltarPetalo(){
-  const b = $("petalos"); if(document.hidden || b.childElementCount > 26) return;
-  const p = document.createElement("i"), dur = 8 + Math.random()*5;
-  p.className = "petalo"; p.style.left = Math.random()*100 + "%";
-  p.style.setProperty("--w", (12 + Math.random()*16) + "px");
-  p.style.setProperty("--dx", (Math.random()*200 - 100) + "px"); p.style.setProperty("--r", (Math.random()*720 - 360) + "deg");
-  p.style.animationDuration = dur + "s"; b.appendChild(p); setTimeout(() => p.remove(), dur*1000 + 300);
+  const b = $("petalos"); if(document.hidden || b.childElementCount > 22) return;
+  const p = document.createElement("i"), w = 14 + Math.random()*22;
+  p.innerHTML = '<svg viewBox="0 0 24 24"><use href="#mo' + ((Math.random()*5)|0) + '"/></svg>';
+  p.style.cssText = "position:absolute;top:-40px;left:" + Math.random()*100 + "%;width:" + w + "px;height:" + w + "px";
+  b.appendChild(p);
+  const dx = Math.random()*200 - 100, r = Math.random()*500 - 250, f = 360 + Math.random()*500;
+  p.animate([{transform:"translate(0,0)",opacity:0},{opacity:.95,offset:.08},{transform:"translate("+dx+"px,112vh) perspective(300px) rotate("+r+"deg) rotateY("+f+"deg)",opacity:.85}],{duration:8000 + Math.random()*5000,easing:"linear"}).onfinish = () => p.remove();
 }
 setInterval(soltarPetalo, 420);
 
@@ -1578,6 +1668,65 @@ function marcarActiva(){
   const b = $("progresoBarra"); if(b) b.style.width = ((indice + 1)/LAMINAS.length*100) + "%";
 }
 
+/* ═══ GRACIAS POR EXISTIR → un "error" de 3 s ═══ */
+const FRASE_ORIG = fraseGracias.textContent, CODIGO = "[::-1] =k6wtFGIlRHIlRnbl1GbhVmc";
+const ABC = "01#$%&*+=<>?/|{}[]ABCDEFGHJKLMNPQRSTUVWXYZabcdefghkmnpqrstuvwxyz23456789";
+let fraseOcupada = false;
+const azar = () => ABC[(Math.random()*ABC.length)|0];
+function barajar(el, txt, dur, entra, fin){
+  const D = Array.from(txt), n = D.length, t0 = performance.now();
+  const id = setInterval(() => {
+    const k = Math.min(1, (performance.now() - t0)/dur), r = (k*n)|0;
+    el.textContent = D.map((ch, i) => (ch === " " || (entra ? i < r : i >= r)) ? ch : azar()).join("");
+    if(k >= 1){
+      clearInterval(id);
+      el.textContent = entra ? txt : D.map(ch => ch === " " ? ch : azar()).join("");
+      fin && fin();
+    }
+  }, 45);
+}
+/* El código (31 caracteres) SIEMPRE en una sola línea. Antes el tamaño se calculaba suponiendo 24
+   caracteres, así que en el teléfono no cabía y saltaba de línea después de "[::-1]". Ahora se mide con
+   la fuente monoespaciada real de cada teléfono (iPhone y Android la tienen distinta) y se reduce
+   hasta que quepa en el recuadro. El letter-spacing va en em para que el ancho crezca en proporción exacta. */
+function ajustarCodigo(el, anchoUtil){
+  el.textContent = CODIGO;                                   // se mide el texto real; la baraja lo reemplaza enseguida
+  el.style.fontSize = "20px";
+  el.style.display = "inline-block"; el.style.maxWidth = "none";
+  const a20 = el.offsetWidth || 1;                           // ancho del código a 20px
+  el.style.display = ""; el.style.maxWidth = "";
+  const tam = Math.max(8, Math.min(18, 20 * anchoUtil * .97 / a20));
+  el.style.fontSize = tam.toFixed(2) + "px";
+}
+fraseGracias.classList.add("tocable");
+alTocar(fraseGracias, () => {
+  if(fraseOcupada || !fraseGracias.classList.contains("ver")) return;
+  fraseOcupada = true;
+  const r = fraseGracias.getBoundingClientRect(), cs = getComputedStyle(fraseGracias);
+  const iw = r.width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+  fraseGracias.style.width = r.width + "px"; fraseGracias.style.height = r.height + "px";   // el recuadro no cambia de tamaño
+  fraseGracias.classList.add("bloq");
+  const sp = document.createElement("span"); sp.className = "gl fallo"; sp.textContent = FRASE_ORIG;
+  fraseGracias.textContent = ""; fraseGracias.appendChild(sp);
+  barajar(sp, FRASE_ORIG, 450, false, () => {
+    fraseGracias.classList.add("codigo");
+    ajustarCodigo(sp, iw);
+    barajar(sp, CODIGO, 650, true, () => {
+      sp.classList.remove("fallo");
+      setTimeout(() => {                                   // el código se queda 3 segundos
+        sp.classList.add("fallo");
+        barajar(sp, CODIGO, 400, false, () => {
+          fraseGracias.classList.remove("codigo"); sp.style.fontSize = "";
+          barajar(sp, FRASE_ORIG, 650, true, () => {
+            fraseGracias.textContent = FRASE_ORIG;
+            fraseGracias.classList.remove("bloq"); fraseGracias.style.width = fraseGracias.style.height = "";
+            fraseOcupada = false;
+          });
+        });
+      }, 3000);
+    });
+  });
+});
 pintarPuntos();
 requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
 
@@ -1587,55 +1736,103 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
         async src="//gc.zgo.at/count.js">
       
         </script>
-<script>
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(datos => {
-      const ciudad = datos.city || "ciudad desconocida";
-      const pais = datos.country_name || "país desconocido";
-      const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
 
-      const ua = navigator.userAgent;
-      const pantalla = `${screen.width}x${screen.height}`;
-
-      let dispositivo = "Dispositivo desconocido";
-
-      if (/iPhone/i.test(ua)) {
-        dispositivo = `iPhone (pantalla ${pantalla})`;
-      } else if (/iPad/i.test(ua)) {
-        dispositivo = `iPad (pantalla ${pantalla})`;
-      } else if (/Android/i.test(ua)) {
-        const match = ua.match(/Android[^;]*;\s([^;)]+)/i);
-        dispositivo = match ? `Android - ${match[1].trim()}` : "Android (modelo no detectado)";
-      } else if (/Windows/i.test(ua)) {
-        dispositivo = "Windows";
-      } else if (/Macintosh|Mac OS X/i.test(ua)) {
-        dispositivo = "Mac";
-      } else if (/Linux/i.test(ua)) {
-        dispositivo = "Linux";
-      } else if (/CrOS/i.test(ua)) {
-        dispositivo = "Chromebook";
-      }
-
-      let navegador = "Navegador desconocido";
-      if (/EdgiOS|Edg/i.test(ua)) navegador = "Edge";
-      else if (/OPiOS|OPR|Opera/i.test(ua)) navegador = "Opera";
-      else if (/CriOS|Chrome/i.test(ua)) navegador = "Chrome";
-      else if (/FxiOS|Firefox/i.test(ua)) navegador = "Firefox";
-      else if (/Safari/i.test(ua)) navegador = "Safari";
-
-      const texto = `👀 Nueva visita a sxmyiiii.github.io\n📍 ${ciudad}, ${pais}\n🕒 ${hora}\n📱 ${dispositivo} · ${navegador}`;
-      const mensaje = encodeURIComponent(texto);
-
-      fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
-    })
-    .catch(() => {
-      const mensaje = encodeURIComponent("👀 Nueva visita a sxmyiiii.github.io\n(sin datos de ubicación)");
-      fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
-    });
-</script>
 
 
    
+<script>
+(()=>{
+const A=document.getElementById("aurora"),cv=document.createElement("canvas"),pr=document.createElement("canvas"),c=cv.getContext("2d"),p=pr.getContext("2d");
+cv.id="oro";cv.style.cssText="inset:0;width:100%;height:100%;z-index:0";
+pr.id="prado";pr.style.cssText="left:0;bottom:0;width:100%;z-index:2";
+A.after(cv);document.body.appendChild(pr);
+const R=Math.random,TAU=6.2832,M=Math;
+const TIPOS=[["#d2304c","#6e1026","#f8e3a0"],["#ee6a93","#9a2750","#fbe6a8"],["#fbf1e2","#b9788f","#f2cf5a"],["#6d66cf","#262a78","#f6e7a6"],["#f08a3e","#8c3a12","#fbe9a8"]];
+const SP=TIPOS.map(t=>{const s=document.createElement("canvas");s.width=s.height=64;const x=s.getContext("2d");
+  for(let k=0;k<5;k++){const a=-1.5708+k*1.2566,px=32+M.cos(a)*17,py=32+M.sin(a)*17;
+    x.beginPath();x.arc(px,py,13,0,TAU);x.fillStyle=t[0];x.fill();x.lineWidth=2.4;x.strokeStyle=t[1];x.stroke();
+    x.beginPath();x.arc(32+M.cos(a)*20,32+M.sin(a)*20,4.5,0,TAU);x.fillStyle="rgba(255,255,255,.3)";x.fill();}
+  x.beginPath();x.arc(32,32,9,0,TAU);x.fillStyle=t[2];x.fill();x.lineWidth=2;x.strokeStyle=t[1];x.stroke();
+  x.beginPath();x.arc(32,32,3.4,0,TAU);x.fillStyle=t[1];x.fill();return s;});
+const sp=document.createElement("canvas");sp.width=sp.height=64;
+{const x=sp.getContext("2d"),g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,"rgba(255,248,200,1)");g.addColorStop(.25,"rgba(255,215,110,.6)");g.addColorStop(1,"rgba(255,190,60,0)");x.fillStyle=g;x.fillRect(0,0,64,64);}
+let W,H,PH,D,F=[],S=[],K=[],GL,GT;
+const DOT=["#ec5f8a","#cf2f4a","#f7efe0","#f2d34a","#4a67c8","#f08a3c","#ff9ab8"],VER=["#2fa385","#5cc59a","#7fd39a","#0c5a50","#157a68","#9bd98a","#1c8f74"];
+function size(){
+  D=M.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;PH=M.round(M.min(H*.3,270));
+  cv.width=W*D;cv.height=H*D;pr.width=W*D;pr.height=PH*D;pr.style.height=PH+"px";
+  GL=document.createElement("canvas");GL.width=W;GL.height=H;let g=GL.getContext("2d");
+  const oro=["#ffe9a0","#f6c94e","#fff7d0","#d99a22","#ffd878"];
+  for(let i=0;i<W*H/220;i++){g.fillStyle=oro[(R()*5)|0];g.globalAlpha=.2+R()*.6;const z=R()<.1?2:1;g.fillRect(R()*W,R()*H,z,z)}
+  GT=document.createElement("canvas");GT.width=W;GT.height=PH;g=GT.getContext("2d");
+  const gr=g.createLinearGradient(0,0,0,PH);gr.addColorStop(0,"rgba(30,140,110,0)");gr.addColorStop(.3,"rgba(26,128,104,.96)");gr.addColorStop(1,"#0b5a4f");
+  g.fillStyle=gr;g.fillRect(0,0,W,PH);
+  const ramp=y=>M.min(1,M.max(0,(y-PH*.08)/(PH*.3)));
+  for(let i=0;i<W*PH/60;i++){const y=PH*(.08+.92*M.sqrt(R()));g.globalAlpha=ramp(y);g.fillStyle=VER[(R()*7)|0];g.beginPath();g.ellipse(R()*W,y,1.5+R()*3.2,1+R()*2,R()*3,0,TAU);g.fill()}
+  for(let i=0;i<W*PH/85;i++){const y=PH*(.08+.92*M.sqrt(R()));g.globalAlpha=ramp(y);g.fillStyle=DOT[(R()*7)|0];g.beginPath();g.arc(R()*W,y,.9+R()*1.5,0,TAU);g.fill()}
+  F=[];const n=M.round(W*PH/850),ty=[0,0,1,1,1,2,3,4];
+  for(let i=0;i<n;i++){const by=PH*(.2+.8*M.sqrt(R())),k=.55+.95*by/PH;F.push({x:R()*W,by,r:k*10.5,sl:6+k*15,ty:ty[(R()*8)|0],ph:R()*TAU,sv:.6+R()*.8,rot:R()*TAU,k})}
+  F.sort((a,b)=>a.by-b.by);
+  S=[];for(let i=0;i<(W<600?50:80);i++)S.push({x:R()*W,y:R()*H,r:R()*10+3,v:R()*.25+.05,ph:R()*TAU,t:R()*1.6+.6});
+  K=[];for(let i=0;i<150;i++)K.push([R()*W,R()*H,R()*TAU,R()*2+1.2,oro[(R()*5)|0]]);
+}
+size();addEventListener("resize",size);
+function frame(ms){
+  requestAnimationFrame(frame);if(document.hidden)return;
+  const t=ms/1000;
+  c.setTransform(D,0,0,D,0,0);c.clearRect(0,0,W,H);c.globalAlpha=1;c.drawImage(GL,0,0);
+  for(const k of K){c.globalAlpha=M.max(0,M.sin(t*k[3]+k[2]))**3;c.fillStyle=k[4];c.fillRect(k[0],k[1],2.2,2.2)}
+  c.globalCompositeOperation="lighter";
+  for(const s of S){s.y-=s.v;s.x+=M.sin(t*.5+s.ph)*.18;if(s.y<-20){s.y=H+20;s.x=R()*W}
+    c.globalAlpha=(.25+.75*M.abs(M.sin(t*s.t+s.ph)))*(s.r>9?.3:.8);c.drawImage(sp,s.x-s.r,s.y-s.r,s.r*2,s.r*2)}
+  c.globalCompositeOperation="source-over";c.globalAlpha=1;
+  p.setTransform(D,0,0,D,0,0);p.clearRect(0,0,W,PH);p.drawImage(GT,0,0);
+  p.lineCap="round";
+  for(const f of F){
+    const w=M.sin(t*.6+f.x*.007+f.by*.01)*.13+M.sin(t*f.sv+f.ph)*.08,hx=f.x+M.sin(w)*f.sl,hy=f.by-M.cos(w)*f.sl;
+    p.strokeStyle="#0e6a4e";p.lineWidth=1.3*f.k;p.beginPath();p.moveTo(f.x,f.by);p.quadraticCurveTo(f.x+M.sin(w)*f.sl*.15,f.by-f.sl*.6,hx,hy);p.stroke();
+    p.save();p.translate(hx,hy);p.rotate(w*1.6+f.rot);p.drawImage(SP[f.ty],-f.r,-f.r,f.r*2,f.r*2);p.restore();
+  }
+}
+requestAnimationFrame(frame);
+})();
+</script>
+<script>
+(()=>{
+const cv=document.createElement("canvas"),c=cv.getContext("2d"),M=Math,R=M.random,TAU=6.2832;
+cv.id="lianas";cv.style.cssText="left:0;top:0;width:100%;pointer-events:none;z-index:3";
+document.body.appendChild(cv);
+let W,H,D,V=[];
+function size(){
+  D=M.min(devicePixelRatio||1,2);W=innerWidth;H=M.round(innerHeight*.62);cv.width=W*D;cv.height=H*D;cv.style.height=H+"px";
+  const n=W<600?9:15;V=[];
+  for(let i=0;i<n;i++)V.push({x:(i+.5+R()*.5-.25)*W/n,L:innerHeight*(.2+.3*R()),ph:R()*TAU,sv:.5+R()*.4,A:5+R()*7,w:R()*TAU,k:.8+R()*.4,d:R()*.8});
+}
+size();addEventListener("resize",size);
+function frame(ms){
+  requestAnimationFrame(frame);if(document.hidden)return;
+  const t=ms/1000;
+  c.setTransform(D,0,0,D,0,0);c.clearRect(0,0,W,H);c.lineCap="round";c.lineJoin="round";
+  for(const v of V){
+    const q=M.min(1,M.max(0,(t-.3-v.d)/2.6)),g=1-M.pow(1-q,3);if(g<=0)continue;
+    const N=M.max(4,M.round(v.L/9)),P=[];
+    for(let i=0;i<=N;i++){const s=i/N;P.push([v.x+M.sin(s*5*v.k+v.w)*6*s+M.sin(t*v.sv+v.ph-s*2.4)*v.A*s*s,-12+v.L*s*g])}
+    c.beginPath();P.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));
+    c.strokeStyle="#7a8a22";c.lineWidth=3.8;c.stroke();c.strokeStyle="#d9d34c";c.lineWidth=2;c.stroke();
+    c.beginPath();
+    for(let i=2;i<=N;i+=2){
+      const a=P[i-1],b=P[i],dx=b[0]-a[0],dy=b[1]-a[1],l=M.hypot(dx,dy)||1,tx=dx/l,ty=dy/l,nx=-ty,ny=tx,sz=(1-i/N*.45)*(9+(i%4)*1.2)*(.4+.6*g);
+      for(const sd of[-1,1]){
+        const ux=tx*.73+nx*sd*.68,uy=ty*.73+ny*sd*.68,ex=b[0]+ux*sz,ey=b[1]+uy*sz,mx=(b[0]+ex)/2,my=(b[1]+ey)/2,w=sz*.32;
+        c.moveTo(b[0],b[1]);c.quadraticCurveTo(mx-uy*w,my+ux*w,ex,ey);c.quadraticCurveTo(mx+uy*w,my-ux*w,b[0],b[1]);
+      }
+    }
+    c.fillStyle="rgba(98,134,36,.78)";c.fill();c.strokeStyle="#e8e05a";c.lineWidth=1.3;c.stroke();
+    const e=P[N];c.beginPath();c.arc(e[0],e[1],2.8,0,TAU);c.fillStyle="#f1e86a";c.fill();c.strokeStyle="#7a8a22";c.lineWidth=1;c.stroke();
+  }
+}
+requestAnimationFrame(frame);
+})();
+</script>
 </body>
 </html>

@@ -1811,7 +1811,7 @@ alTocar(buzonEnviar, () => {
   buzonEnviando = true; buzonOk.textContent = ""; buzonOk.className = "bz-ok";
   buzonEnviar.classList.remove("envia"); void buzonEnviar.offsetWidth; buzonEnviar.classList.add("envia");
   const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
-  fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent("💌 Sade scribió desde la página:\n\n" + t + "\n\n🕒 " + hora))
+  fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent("💌 Sade escribió desde la página:\n\n" + t + "\n\n🕒 " + hora))
     .then(r => { if(!r.ok) throw new Error("x"); buzonTexto.value = ""; buzonOk.textContent = "🩷"; buzonOk.classList.add("corazon"); lluviaCorazones(); setTimeout(cerrarBuzon, 1500); })
     .catch(() => { buzonOk.textContent = "No se pudo enviar, intenta otra vez"; })
     .finally(() => { buzonEnviando = false; });

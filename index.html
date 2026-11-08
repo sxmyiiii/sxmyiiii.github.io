@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<title>Te amo con la vida 🩷</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&family=Parisienne&display=swap" rel="stylesheet">
-<style>
-/* ═══════════════════════════════════════════════════════════
-   BASE
-   ═══════════════════════════════════════════════════════════ */
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --rosa-fuerte:#d81b60;
-  --rosa-hondo:#ad1457;
-  --rosa-suave:#f8bbd0;
-  --vidrio:linear-gradient(160deg,rgba(255,255,255,.62),rgba(255,214,228,.34));
-  --vidrio-borde:1px solid rgba(255,255,255,.68);
-  --vidrio-luz:inset 0 1.4px 1px rgba(255,255,255,.92),inset 0 -8px 14px -10px rgba(216,27,96,.28);
-  --vidrio-sombra:0 10px 26px rgba(216,27,96,.16);
-  --blur:blur(22px) saturate(190%);
-  --suave:cubic-bezier(.22,1,.36,1);
-}
-
-html,body{height:100%;overscroll-behavior:none}
-
-body{
-  min-height:100vh;
-  min-height:100dvh;
-  width:100%;
-  overflow:hidden;
-  background:linear-gradient(150deg,#ffd9e2 0%,#ffc2d1 45%,#ffb6c1 100%);
-  font-family:'Nunito','Segoe UI',system-ui,-apple-system,sans-serif;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
+;
   -webkit-user-select:none;user-select:none;
   -webkit-touch-callout:none;
   -webkit-tap-highlight-color:transparent;
@@ -1736,6 +1698,53 @@ requestAnimationFrame(() => setTimeout(() => mostrarInicio(true), 120));
         async src="//gc.zgo.at/count.js">
       
         </script>
+<script>
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(datos => {
+      const ciudad = datos.city || "ciudad desconocida";
+      const pais = datos.country_name || "país desconocido";
+      const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
+
+      const ua = navigator.userAgent;
+      const pantalla = `${screen.width}x${screen.height}`;
+
+      let dispositivo = "Dispositivo desconocido";
+
+      if (/iPhone/i.test(ua)) {
+        dispositivo = `iPhone (pantalla ${pantalla})`;
+      } else if (/iPad/i.test(ua)) {
+        dispositivo = `iPad (pantalla ${pantalla})`;
+      } else if (/Android/i.test(ua)) {
+        const match = ua.match(/Android[^;]*;\s([^;)]+)/i);
+        dispositivo = match ? `Android - ${match[1].trim()}` : "Android (modelo no detectado)";
+      } else if (/Windows/i.test(ua)) {
+        dispositivo = "Windows";
+      } else if (/Macintosh|Mac OS X/i.test(ua)) {
+        dispositivo = "Mac";
+      } else if (/Linux/i.test(ua)) {
+        dispositivo = "Linux";
+      } else if (/CrOS/i.test(ua)) {
+        dispositivo = "Chromebook";
+      }
+
+      let navegador = "Navegador desconocido";
+      if (/EdgiOS|Edg/i.test(ua)) navegador = "Edge";
+      else if (/OPiOS|OPR|Opera/i.test(ua)) navegador = "Opera";
+      else if (/CriOS|Chrome/i.test(ua)) navegador = "Chrome";
+      else if (/FxiOS|Firefox/i.test(ua)) navegador = "Firefox";
+      else if (/Safari/i.test(ua)) navegador = "Safari";
+
+      const texto = `👀 Nueva visita a sxmyiiii.github.io\n📍 ${ciudad}, ${pais}\n🕒 ${hora}\n📱 ${dispositivo} · ${navegador}`;
+      const mensaje = encodeURIComponent(texto);
+
+      fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
+    })
+    .catch(() => {
+      const mensaje = encodeURIComponent("👀 Nueva visita a sxmyiiii.github.io\n(sin datos de ubicación)");
+      fetch(`https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=${mensaje}`);
+    });
+</script>
 
 
 

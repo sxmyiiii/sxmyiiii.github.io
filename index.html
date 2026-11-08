@@ -711,6 +711,60 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
 /* las láminas de frase del carrusel, con el mismo cristal */
 .lamina-frase,.lamina-hueco{background:var(--vidrio)}
 </style>
+<style>
+/* ═══ BUZÓN (esquina superior derecha, solo en la pantalla principal) ═══ */
+#buzon{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;width:46px;height:46px;padding:0;border-radius:14px;z-index:1050;display:flex;align-items:center;justify-content:center;border:var(--vidrio-borde);background:var(--vidrio);box-shadow:var(--vidrio-sombra),var(--vidrio-luz);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);opacity:0;pointer-events:none;transform:scale(.8);transition:opacity .6s ease,transform .6s var(--suave)}
+#buzon.ver{opacity:1;pointer-events:auto;transform:none}
+#buzon.ver:active{transform:scale(.92)}
+.bz-ico{width:24px;height:24px;display:block}
+.bz-flor{position:absolute;width:19px;height:19px;pointer-events:none;filter:drop-shadow(0 1px 2px rgba(60,30,0,.35))}
+.bz-flor svg{width:100%;height:100%;display:block}
+.bz-flor.f1{top:-8px;left:-8px;animation:bzmece 4s ease-in-out infinite alternate}
+.bz-flor.f2{bottom:-7px;right:-7px;width:16px;height:16px;animation:bzmece 5s ease-in-out infinite alternate-reverse}
+@keyframes bzmece{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+#buzonPanel{position:fixed;inset:0;z-index:1150;display:flex;align-items:flex-start;justify-content:center;padding:max(14vh,calc(env(safe-area-inset-top,0px) + 70px)) 18px 18px;background:rgba(60,32,4,.35);opacity:0;pointer-events:none;transition:opacity .4s ease}
+#buzonPanel.ver{opacity:1}
+#buzonPanel.listo{pointer-events:auto}
+.bz-caja{position:relative;width:min(340px,100%);padding:1.3rem 1.2rem 1.2rem;border-radius:26px;text-align:center;background:var(--vidrio);border:var(--vidrio-borde);box-shadow:var(--vidrio-sombra),var(--vidrio-luz);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);transform:translateY(14px) scale(.96);transition:transform .5s var(--suave)}
+#buzonPanel.ver .bz-caja{transform:none}
+.bz-titulo{font-family:'Parisienne',cursive;font-size:1.9rem;line-height:1.2;color:var(--rosa-hondo);margin-bottom:.7rem}
+.bz-x{position:absolute;top:10px;right:12px;width:34px;height:34px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:12px;border:var(--vidrio-borde);background:var(--vidrio);color:var(--rosa-hondo);font-size:1rem}
+#buzonTexto{display:block;width:100%;min-height:120px;resize:none;border-radius:16px;border:1px solid rgba(255,252,215,.9);background:rgba(255,252,230,.55);padding:.8rem .9rem;font:600 16px/1.4 'Nunito',system-ui,sans-serif;color:#3f2008;outline:none;-webkit-user-select:text;user-select:text;box-shadow:inset 0 2px 6px rgba(120,70,0,.18)}
+#buzonTexto::placeholder{color:rgba(63,32,8,.5)}
+#buzonTexto:focus{box-shadow:inset 0 2px 6px rgba(120,70,0,.18),0 0 0 2px rgba(255,238,160,.8)}
+#buzonEnviar{margin-top:.8rem;font-family:'Nunito',sans-serif;font-size:1.12rem;font-weight:800;letter-spacing:1.2px;padding:.78rem 2.2rem;border-radius:100px}
+.bz-ok{min-height:1.4rem;margin-top:.55rem;font-weight:700;font-size:.95rem;color:var(--rosa-fuerte)}
+</style>
+<style>
+/* buzón abierto: cristal dorado estilo "El beso" de Klimt */
+#buzonPanel{position:fixed;inset:0;display:block;padding:0;background:transparent;transition:opacity .2s ease}
+.bz-caja{position:absolute;top:calc(env(safe-area-inset-top,0px) + 66px);right:12px;width:min(250px,calc(100vw - 24px));padding:10px;border-radius:22px;text-align:left;background:var(--vidrio);border:var(--vidrio-borde);box-shadow:var(--vidrio-sombra),var(--vidrio-luz);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);transform:translateY(-6px);transition:transform .25s var(--suave)}
+#buzonPanel.ver .bz-caja{transform:none}
+.bz-caja::before,.bz-caja::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none}
+.bz-caja::before{background:radial-gradient(rgba(170,110,15,.38) 1px,transparent 1.5px) 0 0/9px 9px}
+.bz-caja::after{background:repeating-radial-gradient(circle at 100% 100%,rgba(150,95,10,.3) 0 1.3px,transparent 1.3px 7px);-webkit-mask-image:radial-gradient(circle at 100% 100%,#000,transparent 75px);mask-image:radial-gradient(circle at 100% 100%,#000,transparent 75px)}
+.bz-mosaico,.bz-fila,.bz-ok{position:relative;z-index:1}
+.bz-caja .bz-flor{z-index:2}
+.bz-mosaico{display:block;width:100%;height:auto;margin-bottom:8px;filter:drop-shadow(0 1px 1px rgba(90,50,0,.3))}
+.bz-fila{display:flex;align-items:center;gap:8px}
+#buzonTexto{flex:1;min-width:0;min-height:0;height:52px;border-radius:12px;border:1px solid rgba(160,105,20,.5);background:rgba(255,251,235,.8);padding:.5rem .65rem;box-shadow:inset 0 1px 4px rgba(120,70,0,.18)}
+#buzonTexto:focus{box-shadow:inset 0 1px 4px rgba(120,70,0,.18),0 0 0 2px rgba(224,165,38,.6)}
+#buzonTexto.tiembla{animation:bztiembla .35s}
+@keyframes bztiembla{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+#buzonEnviar{flex:none;width:42px;height:42px;margin:0;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;font:800 1.05rem 'Nunito',sans-serif;letter-spacing:0}
+
+#buzonEnviar .fl{display:block}
+#buzonEnviar.envia{animation:bzpulso .6s var(--suave)}
+#buzonEnviar.envia .fl{animation:bzvuela .7s cubic-bezier(.5,0,.4,1)}
+@keyframes bzvuela{0%{transform:none;opacity:1}45%{transform:translate(24px,-24px) scale(.7);opacity:0}46%{transform:translate(-24px,24px) scale(.7);opacity:0}100%{transform:none;opacity:1}}
+@keyframes bzpulso{0%{transform:scale(1)}30%{transform:scale(.86)}65%{transform:scale(1.12)}100%{transform:scale(1)}}
+.bz-ok{margin-top:.35rem;min-height:0;font-size:.85rem;text-align:center}
+.bz-ok:empty{display:none}
+.bz-ok.corazon{font-size:1.6rem;line-height:1.2;animation:bzlate .7s var(--suave)}
+@keyframes bzlate{0%{transform:scale(.2);opacity:0}55%{transform:scale(1.35);opacity:1}100%{transform:scale(1)}}
+.bz-mini{position:absolute;z-index:3;pointer-events:none;font-size:14px;line-height:1;margin:-7px 0 0 -7px;animation:bzmini .95s ease-out both}
+@keyframes bzmini{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.1) rotate(var(--rot));opacity:0}}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="fl0"><circle cx="12.00" cy="5.50" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f8e3a0" stroke="#6e1026" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#6e1026"/></g><g id="fl1"><circle cx="12.00" cy="5.50" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#fbe6a8" stroke="#9a2750" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#9a2750"/></g><g id="fl2"><circle cx="12.00" cy="5.50" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f2cf5a" stroke="#b9788f" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#b9788f"/></g><g id="fl3"><circle cx="12.00" cy="5.50" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f6e7a6" stroke="#262a78" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#262a78"/></g><g id="fl4"><circle cx="12.00" cy="5.50" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#fbe9a8" stroke="#8c3a12" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#8c3a12"/></g><g id="rg0"><circle cx="12" cy="12" r="11" fill="#a51c2e" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#f2e1bd" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#d9363f" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f7ead0" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#2c0d12"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="rg1"><circle cx="12" cy="12" r="11" fill="#1b4a98" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#e8ecd8" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#3f86d1" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f3f0dc" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#0d1f45"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="rg2"><circle cx="12" cy="12" r="11" fill="#6b2f93" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#f0e0ef" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#b04aa8" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f6ecd8" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#25102f"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="mo0"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="6.5" y="4.5" width="11" height="15" fill="#f4e6b8" stroke="#15100a" stroke-width="2.2"/></g><g id="mo1"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="7.5" y="3" width="9" height="18" fill="#15100a"/><rect x="9.5" y="5" width="5" height="7" fill="#f2ead4"/><circle cx="12" cy="15" r="1.3" fill="#f2ead4"/><circle cx="12" cy="18.4" r="1.3" fill="#f2ead4"/></g><g id="mo2"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="4.5" y="7" width="15" height="10" fill="#c4c0b2" stroke="#15100a" stroke-width="1.2"/><rect x="7" y="9.2" width="10" height="5.6" fill="#ece8dc"/></g><g id="mo3"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><circle cx="12" cy="12" r="8.6" fill="#f0c650" stroke="#a16e12" stroke-width="1"/><path d="M12 12a1.5 1.5 0 1 1 2 1.3 3.3 3.3 0 1 1-4.5-3 5.2 5.2 0 1 1 7.4 4.8" fill="none" stroke="#7a4a0c" stroke-width="1" stroke-linecap="round"/></g><g id="mo4"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="7.5" y="3" width="9" height="18" fill="#15100a"/><rect x="9.6" y="5" width="1.6" height="14" fill="#f2ead4"/><rect x="12.8" y="5" width="1.6" height="14" fill="#cfcabb"/></g></defs></svg>
@@ -727,6 +781,20 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
 <div id="ambiente"></div>
 <div id="lluvia"></div>
 <div class="aviso" id="aviso">Errorrrr 🙊</div>
+
+<button class="tocable" id="buzon" type="button" aria-label="Escríbeme un mensaje"><span class="bz-flor f1"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span><span class="bz-flor f2"><svg viewBox="0 0 24 24"><use href="#fl2"/></svg></span><svg class="bz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z" fill="rgba(255,255,235,.35)" stroke="#3f2008" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.5" cy="9.5" r="1.1" fill="#3f2008"/><circle cx="12" cy="9.5" r="1.1" fill="#3f2008"/><circle cx="15.5" cy="9.5" r="1.1" fill="#3f2008"/></svg></button>
+<div id="buzonPanel" aria-hidden="true">
+  <div class="bz-caja">
+    <span class="bz-flor f1"><svg viewBox="0 0 24 24"><use href="#fl1"/></svg></span>
+    <span class="bz-flor f2"><svg viewBox="0 0 24 24"><use href="#fl3"/></svg></span>
+    <svg class="bz-mosaico" viewBox="0 0 240 24" aria-hidden="true"><use href="#mo0" x="0"/><use href="#fl0" x="24"/><use href="#mo1" x="48"/><use href="#fl1" x="72"/><use href="#mo2" x="96"/><use href="#fl2" x="120"/><use href="#mo3" x="144"/><use href="#fl3" x="168"/><use href="#mo4" x="192"/><use href="#fl4" x="216"/></svg>
+    <div class="bz-fila">
+      <textarea id="buzonTexto" maxlength="600" rows="2" placeholder="…"></textarea>
+      <button class="burbuja tocable" id="buzonEnviar" type="button" aria-label="Enviar"><span class="fl">➤</span></button>
+    </div>
+    <div class="bz-ok" id="buzonOk"></div>
+  </div>
+</div>
 
 <!-- ── CONTADOR ── -->
 <div id="contador">
@@ -1698,6 +1766,56 @@ function ajustarCodigo(el, anchoUtil){
   const tam = Math.max(8, Math.min(18, 20 * anchoUtil * .97 / a20));
   el.style.fontSize = tam.toFixed(2) + "px";
 }
+/* ═══ Aviso a Telegram cuando le sale el código ═══ */
+let vecesCodigo = 0;
+function avisarTelegram(){
+  vecesCodigo++;
+  const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
+  const texto = "🩷 Tocó el «gracias por existir» y le salió el código ✨\n🔁 Vez número " + vecesCodigo + "\n🕒 " + hora;
+  fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent(texto)).catch(() => {});
+}
+/* ═══ BUZÓN · esquina superior derecha de la pantalla principal ═══ */
+const buzon = document.getElementById("buzon"), buzonPanel = document.getElementById("buzonPanel"),
+      buzonTexto = document.getElementById("buzonTexto"), buzonOk = document.getElementById("buzonOk");
+new MutationObserver(() => { const v = fraseGracias.classList.contains("ver"); buzon.classList.toggle("ver", v); if(!v) cerrarBuzon(); })
+  .observe(fraseGracias, { attributes:true, attributeFilter:["class"] });
+function abrirBuzon(){
+  buzonOk.textContent = ""; buzonOk.className = "bz-ok"; buzonPanel.classList.add("ver"); buzonPanel.setAttribute("aria-hidden", "false");
+  setTimeout(() => buzonPanel.classList.add("listo"), 350);       // evita el click fantasma del mismo toque
+}
+function cerrarBuzon(){
+  buzonPanel.classList.remove("listo", "ver"); buzonPanel.setAttribute("aria-hidden", "true"); buzonTexto.blur();
+}
+function lluviaCorazones(){
+  const caja = buzonPanel.querySelector(".bz-caja"), c = caja.getBoundingClientRect(), r = buzonEnviar.getBoundingClientRect();
+  const x = r.left - c.left + r.width / 2, y = r.top - c.top + r.height / 2;
+  for(let i = 0; i < 7; i++){
+    const h = document.createElement("span");
+    h.className = "bz-mini"; h.textContent = "🩷";
+    h.style.left = x + "px"; h.style.top = y + "px";
+    h.style.setProperty("--dx", (Math.random() * 80 - 55) + "px");
+    h.style.setProperty("--dy", -(30 + Math.random() * 50) + "px");
+    h.style.setProperty("--rot", (Math.random() * 50 - 25) + "deg");
+    h.style.animationDelay = (i * 60) + "ms";
+    caja.appendChild(h); setTimeout(() => h.remove(), 1400);
+  }
+}
+alTocar(buzon, abrirBuzon);
+alTocar(buzonPanel, (e) => { if(!e.target.closest(".bz-caja")) cerrarBuzon(); });   // tocar afuera (o el ícono) cierra
+let buzonEnviando = false;
+const buzonEnviar = document.getElementById("buzonEnviar");
+alTocar(buzonEnviar, () => {
+  const t = buzonTexto.value.trim();
+  if(!t){ buzonTexto.classList.remove("tiembla"); void buzonTexto.offsetWidth; buzonTexto.classList.add("tiembla"); buzonTexto.focus(); return; }
+  if(buzonEnviando) return;
+  buzonEnviando = true; buzonOk.textContent = ""; buzonOk.className = "bz-ok";
+  buzonEnviar.classList.remove("envia"); void buzonEnviar.offsetWidth; buzonEnviar.classList.add("envia");
+  const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
+  fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent("💌 Te escribió desde la página:\n\n" + t + "\n\n🕒 " + hora))
+    .then(r => { if(!r.ok) throw new Error("x"); buzonTexto.value = ""; buzonOk.textContent = "🩷"; buzonOk.classList.add("corazon"); lluviaCorazones(); setTimeout(cerrarBuzon, 1500); })
+    .catch(() => { buzonOk.textContent = "No se pudo enviar, intenta otra vez"; })
+    .finally(() => { buzonEnviando = false; });
+});
 fraseGracias.classList.add("tocable");
 alTocar(fraseGracias, () => {
   if(fraseOcupada || !fraseGracias.classList.contains("ver")) return;
@@ -1713,6 +1831,7 @@ alTocar(fraseGracias, () => {
     ajustarCodigo(sp, iw);
     barajar(sp, CODIGO, 650, true, () => {
       sp.classList.remove("fallo");
+      avisarTelegram();
       setTimeout(() => {                                   // el código se queda 3 segundos
         sp.classList.add("fallo");
         barajar(sp, CODIGO, 400, false, () => {

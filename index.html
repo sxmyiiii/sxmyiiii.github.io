@@ -805,7 +805,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
    Dos bloques independientes: si alguno no te gusta, borra solo ese. */
 
 /* 1) Botón de enviar del buzón: moneda de oro con aro y flecha carmesí */
-#buzonEnviar.burbuja,#buzonEnviar.burbuja:hover{
+#buzonEnviar.burbuja,#buzonEnviar.burbuja:hover,#buzonFoto.burbuja,#buzonFoto.burbuja:hover{
   background:radial-gradient(circle at 36% 30%,#f8e29a,#e0b23e 58%,#b9851c);
   color:#8c1a26;border:1px solid rgba(21,16,10,.92);
   -webkit-backdrop-filter:none;backdrop-filter:none;
@@ -816,6 +816,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   background:repeating-radial-gradient(circle at 8% 94%,rgba(60,30,4,.4) 0 1.5px,transparent 1.5px 13px),repeating-radial-gradient(circle at 94% 8%,rgba(60,30,4,.4) 0 1.5px,transparent 1.5px 13px);
   -webkit-mask-image:radial-gradient(circle at 8% 94%,#000,transparent 40vmax),radial-gradient(circle at 94% 8%,#000,transparent 40vmax);
   mask-image:radial-gradient(circle at 8% 94%,#000,transparent 40vmax),radial-gradient(circle at 94% 8%,#000,transparent 40vmax)}
+
+/* Botón de foto del buzón */
+.bz-caja{width:min(300px,calc(100vw - 24px))}
+#buzonFoto{flex:none;width:44px;height:44px;margin:0;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%}
+#buzonFoto svg{width:22px;height:22px;display:block;position:relative;z-index:1}
+#buzonFoto.subiendo{pointer-events:none;animation:bzpulso 1s var(--suave) infinite}
 </style>
 </head>
 <body>
@@ -842,6 +848,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     <span class="bz-flor f2" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#fl3"/></svg></span>
     <svg class="bz-mosaico" viewBox="0 0 240 24" aria-hidden="true"><use href="#mo0" x="0"/><use href="#fl0" x="24"/><use href="#mo1" x="48"/><use href="#fl1" x="72"/><use href="#mo2" x="96"/><use href="#fl2" x="120"/><use href="#mo3" x="144"/><use href="#fl3" x="168"/><use href="#mo4" x="192"/><use href="#fl4" x="216"/></svg>
     <div class="bz-fila">
+      <button class="burbuja tocable" id="buzonFoto" type="button" aria-label="Enviar una foto"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.6"/></svg></button><input type="file" id="buzonArchivo" accept="image/*" hidden>
       <textarea id="buzonTexto" maxlength="600" rows="2" placeholder="…" aria-label="Escríbeme un mensaje" enterkeyhint="send" autocomplete="off"></textarea>
       <button class="burbuja tocable" id="buzonEnviar" type="button" aria-label="Enviar"><span class="fl">➤</span></button>
     </div>
@@ -2051,6 +2058,52 @@ function frame(ms){
   }
 }
 requestAnimationFrame(frame);
+})();
+</script>
+<script>
+/* ═══ Foto al Telegram (script nuevo; no toca ninguno de los demás) ═══
+   PROXY vacío = envío directo con el bot, igual que el buzón.
+   Pega aquí la URL de tu Worker y el token deja de ir dentro de la página. */
+(() => {
+  const PROXY = "";
+  const BOT = "8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY", CHAT = "1236939701";
+  const btn = document.getElementById("buzonFoto"), inp = document.getElementById("buzonArchivo");
+  const txt = document.getElementById("buzonTexto"), ok = document.getElementById("buzonOk");
+  if(!btn || !inp) return;
+  const panel = document.getElementById("buzonPanel");
+  const cerrar = () => { panel.classList.remove("listo", "ver"); panel.setAttribute("aria-hidden", "true"); txt.blur(); };  // igual que cerrarBuzon()
+  let ocupado = false;
+  const decir = (t, corazon) => { ok.textContent = t; ok.className = "bz-ok" + (corazon ? " corazon" : ""); };
+  const reducir = f => new Promise((res, rej) => {
+    const u = URL.createObjectURL(f), im = new Image();
+    im.onload = () => {
+      const k = Math.min(1, 1600 / Math.max(im.naturalWidth, im.naturalHeight)), c = document.createElement("canvas");
+      c.width = Math.round(im.naturalWidth * k); c.height = Math.round(im.naturalHeight * k);
+      c.getContext("2d").drawImage(im, 0, 0, c.width, c.height); URL.revokeObjectURL(u);
+      c.toBlob(b => b ? res(b) : rej(new Error("x")), "image/jpeg", .85);
+    };
+    im.onerror = () => { URL.revokeObjectURL(u); rej(new Error("x")); };
+    im.src = u;
+  });
+  btn.addEventListener("click", () => { if(!ocupado) inp.click(); });
+  inp.addEventListener("change", async () => {
+    const f = inp.files && inp.files[0]; inp.value = "";
+    if(!f || ocupado) return;
+    ocupado = true; btn.classList.add("subiendo"); decir("");
+    try {
+      const blob = await reducir(f);
+      const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
+      const nota = txt.value.trim(), fd = new FormData();
+      fd.append("photo", blob, "foto.jpg");
+      fd.append("caption", "📷 Te mandó una foto desde la página" + (nota ? "\n\n" + nota : "") + "\n\n🕒 " + hora);
+      let url = PROXY;
+      if(!url){ url = "https://api.telegram.org/bot" + BOT + "/sendPhoto"; fd.append("chat_id", CHAT); }
+      const r = await fetch(url, { method: "POST", body: fd });
+      if(!r.ok) throw new Error("x");
+      txt.value = ""; decir("🩷", true); setTimeout(cerrar, 1500);
+    } catch(e){ decir("No se pudo enviar, intenta otra vez"); }
+    finally { ocupado = false; btn.classList.remove("subiendo"); }
+  });
 })();
 </script>
 </body>

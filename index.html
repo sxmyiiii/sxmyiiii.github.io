@@ -4,10 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#a97618">
+<meta name="description" content="Una sorpresa para ti 🩷">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Te amo con la vida 🩷">
+<meta property="og:description" content="Una sorpresa para ti 🩷">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A9%B7%3C/text%3E%3C/svg%3E">
 <title>Te amo con la vida 🩷</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Parisienne&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
    BASE
@@ -765,8 +774,52 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
 .bz-mini{position:absolute;z-index:3;pointer-events:none;font-size:14px;line-height:1;margin:-7px 0 0 -7px;animation:bzmini .95s ease-out both}
 @keyframes bzmini{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.1) rotate(var(--rot));opacity:0}}
 </style>
+<style>
+/* ═══ PULIDO PROFESIONAL ═══
+   Capa final: solo suma detalles. No reemplaza ningún color, tamaño ni animación del diseño. */
+:root{color-scheme:light;--foco:#fff4be;--foco-oscuro:#3f2008}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+/* foco de teclado visible en todo lo tocable */
+.tocable:focus-visible{outline:2px solid var(--foco);outline-offset:3px}
+.bz-caja .tocable:focus-visible{outline-color:var(--foco-oscuro)}
+
+/* tamaño táctil mínimo de 44px */
+#buzonEnviar{width:44px;height:44px}
+
+/* el buzón responde al cursor igual que el resto de botones */
+#buzon{transition:opacity .6s ease,transform .6s var(--suave),box-shadow .5s ease}
+@media(hover:hover){#buzon.ver:hover{box-shadow:var(--vidrio-sombra),var(--vidrio-luz),0 0 20px rgba(255,238,160,.38)}}
+
+/* tipografía: líneas equilibradas, sin viudas */
+.frase-gracias,.lamina-frase p{text-wrap:balance}
+
+/* las fotos no se arrastran ni se seleccionan */
+.lamina img{-webkit-user-drag:none;user-drag:none}
+
+/* aviso si el navegador no ejecuta JavaScript */
+.sin-js{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:2rem;text-align:center;font:700 1.2rem/1.4 'Nunito',system-ui,sans-serif;color:var(--rosa-hondo)}
+</style>
+<style id="detalles-oro">
+/* ═══ DETALLES DE ORO (de la versión Klimt) sobre tu cristal ═══
+   Dos bloques independientes: si alguno no te gusta, borra solo ese. */
+
+/* 1) Botón de enviar del buzón: moneda de oro con aro y flecha carmesí */
+#buzonEnviar.burbuja,#buzonEnviar.burbuja:hover{
+  background:radial-gradient(circle at 36% 30%,#f8e29a,#e0b23e 58%,#b9851c);
+  color:#8c1a26;border:1px solid rgba(21,16,10,.92);
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  box-shadow:0 8px 16px rgba(25,12,0,.4),inset 0 0 0 2px rgba(255,238,170,.75),inset 0 3px 2px 2px rgba(255,252,220,.45),inset 0 -8px 12px -8px rgba(110,60,0,.55)}
+
+/* 2) Círculos concéntricos en dos esquinas del fondo (el ornamento de la red dorada) */
+#aurora::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-radial-gradient(circle at 8% 94%,rgba(60,30,4,.4) 0 1.5px,transparent 1.5px 13px),repeating-radial-gradient(circle at 94% 8%,rgba(60,30,4,.4) 0 1.5px,transparent 1.5px 13px);
+  -webkit-mask-image:radial-gradient(circle at 8% 94%,#000,transparent 40vmax),radial-gradient(circle at 94% 8%,#000,transparent 40vmax);
+  mask-image:radial-gradient(circle at 8% 94%,#000,transparent 40vmax),radial-gradient(circle at 94% 8%,#000,transparent 40vmax)}
+</style>
 </head>
 <body>
+<noscript><p class="sin-js">Activa JavaScript para ver esta sorpresa 🩷</p></noscript>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="fl0"><circle cx="12.00" cy="5.50" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#d2304c" stroke="#6e1026" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f8e3a0" stroke="#6e1026" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#6e1026"/></g><g id="fl1"><circle cx="12.00" cy="5.50" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#ee6a93" stroke="#9a2750" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#fbe6a8" stroke="#9a2750" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#9a2750"/></g><g id="fl2"><circle cx="12.00" cy="5.50" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#fbf1e2" stroke="#b9788f" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f2cf5a" stroke="#b9788f" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#b9788f"/></g><g id="fl3"><circle cx="12.00" cy="5.50" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#6d66cf" stroke="#262a78" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#f6e7a6" stroke="#262a78" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#262a78"/></g><g id="fl4"><circle cx="12.00" cy="5.50" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="18.18" cy="9.99" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="15.82" cy="17.26" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="8.18" cy="17.26" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="5.82" cy="9.99" r="4.7" fill="#f08a3e" stroke="#8c3a12" stroke-width=".9"/><circle cx="12" cy="12" r="3.7" fill="#fbe9a8" stroke="#8c3a12" stroke-width=".8"/><circle cx="12" cy="12" r="1.3" fill="#8c3a12"/></g><g id="rg0"><circle cx="12" cy="12" r="11" fill="#a51c2e" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#f2e1bd" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#d9363f" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f7ead0" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#2c0d12"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="rg1"><circle cx="12" cy="12" r="11" fill="#1b4a98" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#e8ecd8" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#3f86d1" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f3f0dc" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#0d1f45"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="rg2"><circle cx="12" cy="12" r="11" fill="#6b2f93" stroke="#140a06" stroke-width="1.2"/><circle cx="12" cy="12" r="8.3" fill="#f0e0ef" stroke="#140a06" stroke-width=".6"/><circle cx="12" cy="12" r="6.2" fill="#b04aa8" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="3.8" fill="#f6ecd8" stroke="#140a06" stroke-width=".5"/><circle cx="12" cy="12" r="2.1" fill="#25102f"/><circle cx="11.3" cy="11.3" r=".6" fill="#fff" opacity=".7"/></g><g id="mo0"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="6.5" y="4.5" width="11" height="15" fill="#f4e6b8" stroke="#15100a" stroke-width="2.2"/></g><g id="mo1"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="7.5" y="3" width="9" height="18" fill="#15100a"/><rect x="9.5" y="5" width="5" height="7" fill="#f2ead4"/><circle cx="12" cy="15" r="1.3" fill="#f2ead4"/><circle cx="12" cy="18.4" r="1.3" fill="#f2ead4"/></g><g id="mo2"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="4.5" y="7" width="15" height="10" fill="#c4c0b2" stroke="#15100a" stroke-width="1.2"/><rect x="7" y="9.2" width="10" height="5.6" fill="#ece8dc"/></g><g id="mo3"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><circle cx="12" cy="12" r="8.6" fill="#f0c650" stroke="#a16e12" stroke-width="1"/><path d="M12 12a1.5 1.5 0 1 1 2 1.3 3.3 3.3 0 1 1-4.5-3 5.2 5.2 0 1 1 7.4 4.8" fill="none" stroke="#7a4a0c" stroke-width="1" stroke-linecap="round"/></g><g id="mo4"><rect x="1" y="1" width="22" height="22" rx="2.5" fill="#e7b743" stroke="#a87614" stroke-width="1"/><path d="M3.5 6a1.6 1.6 0 1 1 1.8 1.6M20.5 18a1.6 1.6 0 1 0-1.8-1.6" fill="none" stroke="#b9851c" stroke-width=".8"/><rect x="7.5" y="3" width="9" height="18" fill="#15100a"/><rect x="9.6" y="5" width="1.6" height="14" fill="#f2ead4"/><rect x="12.8" y="5" width="1.6" height="14" fill="#cfcabb"/></g></defs></svg>
 <div id="aurora"><i class="mancha m1"></i><i class="mancha m2"></i><i class="mancha m3"></i><i class="mancha m4"></i></div>
 <div id="petalos"></div><div id="chispas"></div>
@@ -780,19 +833,19 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
 
 <div id="ambiente"></div>
 <div id="lluvia"></div>
-<div class="aviso" id="aviso">Errorrrr 🙊</div>
+<div class="aviso" id="aviso" role="status" aria-live="polite">Errorrrr 🙊</div>
 
-<button class="tocable" id="buzon" type="button" aria-label="Escríbeme un mensaje"><span class="bz-flor f1"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span><span class="bz-flor f2"><svg viewBox="0 0 24 24"><use href="#fl2"/></svg></span><svg class="bz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z" fill="rgba(255,255,235,.35)" stroke="#3f2008" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.5" cy="9.5" r="1.1" fill="#3f2008"/><circle cx="12" cy="9.5" r="1.1" fill="#3f2008"/><circle cx="15.5" cy="9.5" r="1.1" fill="#3f2008"/></svg></button>
-<div id="buzonPanel" aria-hidden="true">
+<button class="tocable" id="buzon" type="button" aria-label="Escríbeme un mensaje"><span class="bz-flor f1" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span><span class="bz-flor f2" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#fl2"/></svg></span><svg class="bz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4h0A2.5 2.5 0 0 1 4 13.5z" fill="rgba(255,255,235,.35)" stroke="#3f2008" stroke-width="1.7" stroke-linejoin="round"/><circle cx="8.5" cy="9.5" r="1.1" fill="#3f2008"/><circle cx="12" cy="9.5" r="1.1" fill="#3f2008"/><circle cx="15.5" cy="9.5" r="1.1" fill="#3f2008"/></svg></button>
+<div id="buzonPanel" role="dialog" aria-label="Escríbeme un mensaje" aria-hidden="true">
   <div class="bz-caja">
-    <span class="bz-flor f1"><svg viewBox="0 0 24 24"><use href="#fl1"/></svg></span>
-    <span class="bz-flor f2"><svg viewBox="0 0 24 24"><use href="#fl3"/></svg></span>
+    <span class="bz-flor f1" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#fl1"/></svg></span>
+    <span class="bz-flor f2" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#fl3"/></svg></span>
     <svg class="bz-mosaico" viewBox="0 0 240 24" aria-hidden="true"><use href="#mo0" x="0"/><use href="#fl0" x="24"/><use href="#mo1" x="48"/><use href="#fl1" x="72"/><use href="#mo2" x="96"/><use href="#fl2" x="120"/><use href="#mo3" x="144"/><use href="#fl3" x="168"/><use href="#mo4" x="192"/><use href="#fl4" x="216"/></svg>
     <div class="bz-fila">
-      <textarea id="buzonTexto" maxlength="600" rows="2" placeholder="…"></textarea>
+      <textarea id="buzonTexto" maxlength="600" rows="2" placeholder="…" aria-label="Escríbeme un mensaje" enterkeyhint="send" autocomplete="off"></textarea>
       <button class="burbuja tocable" id="buzonEnviar" type="button" aria-label="Enviar"><span class="fl">➤</span></button>
     </div>
-    <div class="bz-ok" id="buzonOk"></div>
+    <div class="bz-ok" id="buzonOk" role="status" aria-live="polite"></div>
   </div>
 </div>
 
@@ -813,8 +866,8 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
 </div>
 
 <!-- ── PIN ── -->
-<div id="panelPin">
-  <div class="pin-titulo">Adivina mami</div>
+<div id="panelPin" role="group" aria-label="Adivina mami">
+  <div class="pin-titulo" role="heading" aria-level="1">Adivina mami</div>
   <div class="puntos" id="puntos">
     <span class="punto"></span><span class="punto"></span><span class="punto"></span><span class="punto"></span>
   </div>
@@ -830,7 +883,7 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
     <button class="burbuja tocable tecla" type="button" data-num="9">9</button>
     <button class="burbuja tocable tecla" type="button" data-num="0" style="grid-column:2">0</button>
   </div>
-  <button class="burbuja tocable" id="btnBorrar" type="button">✕</button>
+  <button class="burbuja tocable" id="btnBorrar" type="button" aria-label="Borrar">✕</button>
 </div>
 
 <!-- ── ESCENARIO ── -->
@@ -839,8 +892,8 @@ body{background:radial-gradient(ellipse at 50% 42%,rgba(236,186,72,.5),transpare
 
   <div id="tarjeta">
     <div id="zonaPregunta">
-      <span class="tocable" id="corazonCentral"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span>
-      <div class="pregunta">¿Te caigo mal bobita?</div>
+      <span class="tocable" id="corazonCentral" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#fl0"/></svg></span>
+      <div class="pregunta" role="heading" aria-level="1">¿Te caigo mal bobita?</div>
       <div class="botones" id="botones">
         <button class="burbuja tocable btn-si" id="btnSi" type="button">Sí 🖕</button>
         <button class="burbuja tocable btn-no" id="btnNo" type="button">No 🙊</button>
@@ -1771,7 +1824,7 @@ let vecesCodigo = 0;
 function avisarTelegram(){
   vecesCodigo++;
   const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
-  const texto = "🩷 Tocó el «Mensaje» y le salió el código ✨\n🔁 Veces: " + vecesCodigo + "\n🕒 " + hora;
+  const texto = "🩷 Tocó el «gracias por existir» y le salió el código ✨\n🔁 Vez número " + vecesCodigo + "\n🕒 " + hora;
   fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent(texto)).catch(() => {});
 }
 /* ═══ BUZÓN · esquina superior derecha de la pantalla principal ═══ */
@@ -1811,7 +1864,7 @@ alTocar(buzonEnviar, () => {
   buzonEnviando = true; buzonOk.textContent = ""; buzonOk.className = "bz-ok";
   buzonEnviar.classList.remove("envia"); void buzonEnviar.offsetWidth; buzonEnviar.classList.add("envia");
   const hora = new Date().toLocaleString("es-ES", { dateStyle: "short", timeStyle: "short" });
-  fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent("💌 Sade escribió desde la página:\n\n" + t + "\n\n🕒 " + hora))
+  fetch("https://api.telegram.org/bot8853002313:AAH-xR5MijKGVA64kJcCnq0Lvgw7WryGuQY/sendMessage?chat_id=1236939701&text=" + encodeURIComponent("💌 Te escribió desde la página:\n\n" + t + "\n\n🕒 " + hora))
     .then(r => { if(!r.ok) throw new Error("x"); buzonTexto.value = ""; buzonOk.textContent = "🩷"; buzonOk.classList.add("corazon"); lluviaCorazones(); setTimeout(cerrarBuzon, 1500); })
     .catch(() => { buzonOk.textContent = "No se pudo enviar, intenta otra vez"; })
     .finally(() => { buzonEnviando = false; });
